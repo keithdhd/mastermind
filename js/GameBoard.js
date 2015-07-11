@@ -5,29 +5,45 @@ function GameBoard(){
 }
 
 GameBoard.prototype.bindListeners = function(){
-  //get all the DOM elements we need
 
+  $(".peg").draggable({
+    //cancel: "a.ui-icon", // clicking an icon won't initiate dragging
+    revert: "invalid", // when not dropped, the item will revert back to its initial position
+    containment: "document",
+    helper: "clone",
+    cursor: "move"
+  });
+
+  $(".hole").droppable({
+    accept: ".peg"
+  });
 }
 
 GameBoard.prototype.buildBoard = function(){
-  //loop 10 times and append guess-holes-template to guess-container
-  var htmlToInsert = "";
+  //loop x times and append guess-holes-template to guess-container
+  var guessUl;
   var i=0;
-  for(i; i<10; i++){
-    var guessUl = document.createElement('ul'); 
+  for(i; i<8; i++){
+    guessUl = document.createElement('ul'); 
     $(guessUl).append($("#guess-holes-template").html());
     $(guessUl).attr("id", i);
     $(guessUl).attr("class", "guess-holes");
 
     $("#guesses-container").append($(guessUl));
   }
-
-  $(".guess-holes").children().each( function(innerInd){
-    $(this).attr("id", innerInd);
+  //add ids to each li child
+  $(".guess-holes").children().each( function(index){
+    $(this).attr("id", index);
   });
 }
 
 GameBoard.prototype.addPeg = function(peg, pegArray){
   //addPeg should add a peg object to the current guess array
-  //and then add the pegArray to the _pegs array
+}
+
+GameBoard.prototype.addSecretCode = function(arrSecretCode){
+  var i=0;
+  for(i; i<arrSecretCode.length; i++){
+    $('#secret-code #' + i).attr("class", "peg " + arrSecretCode[i].getColor());
+  }
 }

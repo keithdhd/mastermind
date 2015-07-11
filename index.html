@@ -14,7 +14,23 @@
 <body>
   <main class="game-board">
     <div id="secret-code-container">
-      secret-code-container
+      <ul id="secret-code">    
+        <li>
+          <div class="peg" id="0"></div>
+        </li>  
+        <li>
+          <div class="peg" id="1"></div>
+        </li> 
+        <li>
+          <div class="peg" id="2"></div>
+        </li> 
+        <li>
+          <div class="peg" id="3"></div>
+        </li> 
+        <li>
+          <div class="peg" id="4"></div>
+        </li> 
+      </ul>
     </div>
     <div class="main-board">
       <div class="all-pegs-container">
@@ -61,7 +77,9 @@
     </div>
   </main>
 </body>
- 
+<!-- ************************************************ -->
+ <!-- Hidden template for creating 10 rows of guesses -->
+ <!-- these get appended to guesses-container -->
   <ul id="guess-holes-template">    
     <li>
       <div class="hole"></div>
