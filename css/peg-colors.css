@@ -1,0 +1,55 @@
+.peg{
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  padding:0;
+  border-radius: 50%;
+}
+
+.yellow{
+  background: radial-gradient(circle at 10px 10px, red, #000);
+}
+
+.red{
+  background: radial-gradient(circle at 10px 10px, yellow, #000);
+}
+
+.aqua{
+  background: radial-gradient(circle at 10px 10px, aqua, #000);
+}
+
+.blue{
+  background: radial-gradient(circle at 10px 10px, #5cabff, #000);
+}
+
+.orange{
+  background: radial-gradient(circle at 10px 10px, orange, #000);
+}
+
+.green{
+  background: radial-gradient(circle at 10px 10px, green, #000);
+}  
+
+.black{
+  background: radial-gradient(circle at 10px 10px, #333, #000);
+}
+
+.white{
+  background: radial-gradient(circle at 10px 10px, #f2f2f2, #000);
+}   
+
+.maroon{
+  background: radial-gradient(circle at 10px 10px, maroon, #000);
+}
+
+.brown{
+  background: radial-gradient(circle at 10px 10px, brown, #000);
+}
+
+.purple{
+  background: radial-gradient(circle at 10px 10px, purple, #000);
+}
+
+.grey{
+  background: radial-gradient(circle at 10px 10px, grey, #000);
+}

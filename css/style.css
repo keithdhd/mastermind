@@ -1,0 +1,82 @@
+.game-board{
+  box-shadow:0 5px 10px 1px #000;
+  background-color:#292929;
+  width:400px;
+  height: 620px;
+  border:2px solid #000;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 50px auto;
+}
+
+#secret-code-container{
+  background-color: red;
+  height: 50px;
+  width: 200px;
+  margin: 20px auto;
+}
+
+.main-board{
+  background-color: brown;
+  height: 520px;
+  padding: 5px;
+}
+
+.all-pegs-container{
+  background-color: rgb(94, 63, 50);
+  width: 15%; 
+  height: 520px;
+  display: inline-block;
+  float: left;
+  border-radius: 5px;
+}
+
+#guesses-container{
+  background-color: magenta;
+  width: 85%;
+  display: inline-block;
+  float: left;
+}
+
+.hole{
+  background-color: #333;
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.feedback-holes{
+  background-color: #f2f2f2;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 2px;
+}
+
+.peg-list{
+  padding-left: 0px;
+  padding-top: 20px;
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  list-style: none;
+}
+
+.guess-holes-template{
+  display: none;
+}
+
+.guess-holes{
+  text-align: center;
+}
+
+.guess-holes > li{
+  display: inline-block;
+}
