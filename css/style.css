@@ -69,14 +69,14 @@ li{
   list-style: none;
 }
 
-.guess-holes-template{
-  display: none;
-}
-
 .guess-holes{
   text-align: center;
 }
 
 .guess-holes > li{
   display: inline-block;
+}
+
+#guess-holes-template{
+  display: none;
 }

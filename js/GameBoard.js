@@ -14,16 +14,16 @@ GameBoard.prototype.buildBoard = function(){
   var htmlToInsert = "";
   var i=0;
   for(i; i<10; i++){
-    htmlToInsert += $("#guess-holes-template").html();;
+    var guessUl = document.createElement('ul'); 
+    $(guessUl).append($("#guess-holes-template").html());
+    $(guessUl).attr("id", i);
+    $(guessUl).attr("class", "guess-holes");
+
+    $("#guesses-container").append($(guessUl));
   }
-  $("#guesses-container").html(htmlToInsert);
 
-  $(".guess-holes").each( function(ind){
-    $(this).attr("id", ind);
-
-    $(this).children().each( function(innerInd){
-      $(this).attr("id", innerInd);
-    })
+  $(".guess-holes").children().each( function(innerInd){
+    $(this).attr("id", innerInd);
   });
 }
 
