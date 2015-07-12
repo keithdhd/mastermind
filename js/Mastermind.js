@@ -26,7 +26,43 @@ function Mastermind(){
   }
 
   Mastermind.prototype.giveFeedback = function(arrGuess){
-    console.log(arrGuess);
+    var white = 0;
+    var black = 0;
+
+    //for every guess peg, check the position and color
+    //and compare to secretCode pegs
+    //if position and color === true black++
+    //if color === true white++
+    var guessColor;
+    var guessPosition;
+    var i=0;
+    for(i; i<arrGuess.length; i++){
+      guessColor = arrGuess[i].getColor();
+      guessPosition = arrGuess[i].getPosition();
+
+      var j=0;
+      for(j; j<this._secretCode.length; j++){
+        // console.log("secretCode: " + this._secretCode[j].getColor() + ":" + this._secretCode[j].getPosition());  
+        // console.log("Guess:" + guessColor + ":" + guessPosition); 
+
+        if(this._secretCode[j].getColor() == guessColor && this._secretCode[j].getPosition() == guessPosition){
+          black++;
+          //guessColor
+       }
+
+      }
+    }
+
+    console.log(black);
+    // rightColor
+    // wrongPlace
+    // rightPlace
+
+
+    //clear currentGuess array
+    arrGuess.length = 0;
+
+
   }
 
   Mastermind.prototype.createSecretCode = function(){

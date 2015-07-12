@@ -4,7 +4,7 @@ function Peg(color, position){
     return color;
   }
 
-  this.gePosition = function(){
+  this.getPosition = function(){
     return position;
   }
 
