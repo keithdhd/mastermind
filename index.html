@@ -15,90 +15,47 @@
   <main class="game-board">
     <div id="secret-code-container">
       <ul id="secret-code">    
-        <li>
-          <div class="peg" id="0"></div>
-        </li>  
-        <li>
-          <div class="peg" id="1"></div>
-        </li> 
-        <li>
-          <div class="peg" id="2"></div>
-        </li> 
-        <li>
-          <div class="peg" id="3"></div>
-        </li> 
-        <li>
-          <div class="peg" id="4"></div>
-        </li> 
+        <li class="peg" id="0"></li>
+        <li class="peg" id="1"></li>
+        <li class="peg" id="2"></li>
+        <li class="peg" id="3"></li>
+        <li class="peg" id="4"></li>
       </ul>
     </div>
     <div class="main-board">
       <div class="all-pegs-container">
         <ul class="peg-list">    
-          <li>
-            <div class="peg yellow"></div>
-          </li>     
-          <li>
-            <div class="peg red"></div>
-          </li>     
-          <li>
-            <div class="peg aqua"></div>
-          </li>     
-          <li>
-            <div class="peg blue"></div>
-          </li>     
-          <li>
-            <div class="peg orange"></div>
-          </li>
-          <li>
-            <div class="peg green"></div>
-          </li>
-          <li>
-            <div class="peg black"></div>
-          </li>            
-          <li>
-            <div class="peg white"></div>
-          </li>     
-          <li>
-            <div class="peg maroon"></div>
-          </li>
-          <li>
-            <div class="peg brown"></div>
-          </li>
-          <li>
-            <div class="peg purple"></div>
-          </li>
-          <li>
-            <div class="peg grey"></div>
-          </li>
-        </ul>
-      </div>
-      <div id="guesses-container"></div>
+          <li class="peg yellow" id="yellow"></li>     
+          <li class="peg red" id="red"></li> 
+          <li class="peg aqua" id="aqua"></li>     
+          <li class="peg blue" id="blue"></li>
+          <li class="peg orange" id="orange"></li>
+          <li class="peg green" id="green"></li>
+          <li class="peg black" id="black"></li>
+          <li class="peg white" id="white"></li>
+          <li class="peg maroon" id="maroon"></li>
+          <li class="peg brown" id="brown"></li>
+          <li class="peg purple" id="purple"></li>
+          <li class="peg grey" id="grey"></li>
+        </li>
+      </ul>
     </div>
-  </main>
+    <div id="guesses-container"></div>
+  </div>
+</main>
 </body>
 <!-- ************************************************ -->
- <!-- Hidden template for creating 10 rows of guesses -->
- <!-- these get appended to guesses-container -->
-  <ul id="guess-holes-template">    
-    <li>
-      <div class="hole"></div>
-    </li>     
-    <li>
-      <div class="hole"></div>
-    </li>     
-    <li>
-      <div class="hole"></div>
-    </li>     
-    <li>
-      <div class="hole"></div>
-    </li>
-    <li>
-      <div class="hole"></div>
-    </li>
-    <li>
-      <div class="feedback-holes"></div>
-    </li>
-  </ul>
+<!-- Hidden template for creating x rows of guesses -->
+<!-- these get appended to guesses-container -->
+<ul id="guess-holes-template">    
+  <li class="hole" id="0"></li>     
+  <li class="hole" id="1"></li>     
+  <li class="hole" id="2"></li>     
+  <li class="hole"id="3"></li>
+  <li class="hole"id="4"></li>
+  <li>
+    <div class="feedback-holes"></div>
+  </li>
+</ul>
 
 </html>

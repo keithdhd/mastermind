@@ -7,12 +7,12 @@ function Mastermind(){
   };
   this._colors = ["red", "yellow", "aqua", "blue", "orange", "green", "black", "white", "maroon", "brown", "purple", "grey"];
   this.gameBoard = new GameBoard();
-
 }
+
   Mastermind.prototype.init = function(){
     console.log("Initialising Mastermind");
     this.gameBoard.buildBoard();
-    this.gameBoard.bindListeners();
+    this.gameBoard.bindListeners(this.gameBoard);
     this.createSecretCode();
     this.startGame();
   }

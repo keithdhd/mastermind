@@ -25,7 +25,6 @@
 }
 
 #guesses-container{
-  background-color: magenta;
   width: 85%;
   display: inline-block;
   float: left;
@@ -89,12 +88,6 @@ li{
 }
 
 
-
-
-
 #guess-holes-template{
   display: none;
 }
-
-
-

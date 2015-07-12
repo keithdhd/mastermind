@@ -1,21 +1,24 @@
 function GameBoard(){
-  this._pegs = [];
   this._currentGuess = [];
   this._guesses = [];
+  this._numberOfGuesses = 8;
 }
 
-GameBoard.prototype.bindListeners = function(){
+GameBoard.prototype.bindListeners = function(gameBoard){
 
   $(".peg").draggable({
     //cancel: "a.ui-icon", // clicking an icon won't initiate dragging
     revert: "invalid", // when not dropped, the item will revert back to its initial position
-    containment: "document",
-    helper: "clone",
+    containment: ".guesses-container",
+    //helper: "clone",
     cursor: "move"
   });
 
   $(".hole").droppable({
-    accept: ".peg"
+    accept: ".peg",
+    drop: function(event, ui){   
+      gameBoard.addPeg( event, ui.draggable)
+     }    
   });
 }
 
@@ -23,7 +26,7 @@ GameBoard.prototype.buildBoard = function(){
   //loop x times and append guess-holes-template to guess-container
   var guessUl;
   var i=0;
-  for(i; i<8; i++){
+  for(i; i<this._numberOfGuesses; i++){
     guessUl = document.createElement('ul'); 
     $(guessUl).append($("#guess-holes-template").html());
     $(guessUl).attr("id", i);
@@ -31,14 +34,13 @@ GameBoard.prototype.buildBoard = function(){
 
     $("#guesses-container").append($(guessUl));
   }
-  //add ids to each li child
-  $(".guess-holes").children().each( function(index){
-    $(this).attr("id", index);
-  });
 }
 
-GameBoard.prototype.addPeg = function(peg, pegArray){
+GameBoard.prototype.addPeg = function(peg){
   //addPeg should add a peg object to the current guess array
+  var color = event.srcElement.id;
+  console.log(peg.target.id);
+  console.log(color);
 }
 
 GameBoard.prototype.addSecretCode = function(arrSecretCode){

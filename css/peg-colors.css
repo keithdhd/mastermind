@@ -7,11 +7,11 @@
 }
 
 .yellow{
-  background: radial-gradient(circle at 10px 10px, red, #000);
+  background: radial-gradient(circle at 10px 10px, yellow, #000);
 }
 
 .red{
-  background: radial-gradient(circle at 10px 10px, yellow, #000);
+  background: radial-gradient(circle at 10px 10px, red, #000);
 }
 
 .aqua{
