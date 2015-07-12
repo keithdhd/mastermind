@@ -1,7 +1,8 @@
-function GameBoard(){
+function GameBoard(mastermind){
   this._currentGuess = [];
   this._guesses = [];
   this._numberOfGuesses = 8;
+  this.mastermind = mastermind;
 }
 
 GameBoard.prototype.bindListeners = function(gameBoard){
@@ -17,7 +18,7 @@ GameBoard.prototype.bindListeners = function(gameBoard){
   $(".hole").droppable({
     accept: ".peg",
     drop: function(event, ui){   
-      gameBoard.addPeg( event, ui.draggable)
+      gameBoard.addPeg(event, ui.draggable);
      }    
   });
 }
@@ -39,8 +40,12 @@ GameBoard.prototype.buildBoard = function(){
 GameBoard.prototype.addPeg = function(peg){
   //addPeg should add a peg object to the current guess array
   var color = event.srcElement.id;
-  console.log(peg.target.id);
-  console.log(color);
+  var position = peg.target.id;
+  this._currentGuess.push(new Peg(color, position));
+
+  if(this._currentGuess.length === 5){
+     this.mastermind.giveFeedback(this._currentGuess);   
+  }
 }
 
 GameBoard.prototype.addSecretCode = function(arrSecretCode){

@@ -6,7 +6,7 @@ function Mastermind(){
     codeMaker: 0
   };
   this._colors = ["red", "yellow", "aqua", "blue", "orange", "green", "black", "white", "maroon", "brown", "purple", "grey"];
-  this.gameBoard = new GameBoard();
+  this.gameBoard = new GameBoard(this);
 }
 
   Mastermind.prototype.init = function(){
@@ -25,8 +25,8 @@ function Mastermind(){
 
   }
 
-  Mastermind.prototype.giveFeedback = function(){
-
+  Mastermind.prototype.giveFeedback = function(arrGuess){
+    console.log(arrGuess);
   }
 
   Mastermind.prototype.createSecretCode = function(){

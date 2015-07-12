@@ -13,6 +13,7 @@
   background-color: brown;
   height: 520px;
   padding: 5px;
+  border-radius: 5px;
 }
 
 .all-pegs-container{
