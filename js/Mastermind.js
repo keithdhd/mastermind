@@ -70,7 +70,12 @@ function Mastermind(){
     console.log("black:" + black);
     console.log("white:" + white);
 
-    $("#feedback" + guessNum).html("black:" + black   + "<br>" + "white:" + white); 
+    if(black === 5 && white === 0){
+      alert("You win in " +  (parseInt(guessNum) + 1) + " guesses!");
+      $("#feedback" + guessNum).html("WIN");
+    }else{
+      $("#feedback" + guessNum).html("black:" + black   + "<br>" + "white:" + white); 
+    }
 
     //clear currentGuess array
     arrGuess.length = 0;
