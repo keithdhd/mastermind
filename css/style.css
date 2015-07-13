@@ -2,7 +2,7 @@
   box-shadow:0 5px 10px 1px #000;
   background-color:#796833;
   width:400px;
-  height: 620px;
+  height: 710px;
   border:1px solid #000;
   border-radius: 4px;
   padding: 10px;
@@ -11,7 +11,7 @@
 
 .main-board{
   background-color: brown;
-  height: 520px;
+  height: 600px;
   padding: 5px;
   border-radius: 5px;
 }
@@ -19,7 +19,7 @@
 .all-pegs-container{
   background-color: rgb(94, 63, 50);
   width: 15%; 
-  height: 520px;
+  height: 600px;
   display: inline-block;
   float: left;
   border-radius: 5px;
@@ -29,6 +29,10 @@
   width: 85%;
   display: inline-block;
   float: left;
+}
+
+#guesses-container > ul > li{
+  margin: 5px; 
 }
 
 .hole{
@@ -101,7 +105,7 @@ li{
 
 #reset-button{
   width: 200px;
-  margin:20px auto;
+  margin:30px auto;
   background-color: brown;
   border-radius: 10px;
   font-size: 32px;
