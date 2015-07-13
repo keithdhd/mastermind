@@ -39,8 +39,6 @@ GameBoard.prototype.buildBoard = function(){
 
 GameBoard.prototype.addPeg = function(color, position){
   //addPeg should add a peg object to the current guess array
-  console.log("position:" + position, "color:"+ color);
-
   this._currentGuess.push(new Peg(color, position));
 
   if(this._currentGuess.length === 5){
