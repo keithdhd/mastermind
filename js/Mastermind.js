@@ -42,8 +42,8 @@ function Mastermind(){
 
       var j=0;
       for(j; j<this._secretCode.length; j++){
-        // console.log("secretCode: " + this._secretCode[j].getColor() + ":" + this._secretCode[j].getPosition());  
-        // console.log("Guess:" + guessColor + ":" + guessPosition); 
+        console.log("secretCode: " + this._secretCode[j].getColor() + ":" + this._secretCode[j].getPosition());  
+        console.log("Guess:" + guessColor + ":" + guessPosition); 
 
         if(this._secretCode[j].getColor() == guessColor && this._secretCode[j].getPosition() == guessPosition){
           black++;
@@ -53,7 +53,7 @@ function Mastermind(){
       }
     }
 
-    console.log(black);
+    console.log("black:" + black);
     // rightColor
     // wrongPlace
     // rightPlace

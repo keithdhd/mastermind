@@ -8,18 +8,27 @@ function GameBoard(mastermind){
 GameBoard.prototype.bindListeners = function(gameBoard){
 
   $(".peg").draggable({
-    //cancel: "a.ui-icon", // clicking an icon won't initiate dragging
     revert: "invalid", // when not dropped, the item will revert back to its initial position
-    containment: ".guesses-container",
-    //helper: "clone",
-    cursor: "move"
+    //containment: ".guesses-container",
+    cursor: "move",
+    helper: "clone"
   });
 
-  $(".hole").droppable({
-    accept: ".peg",
-    drop: function(event, ui){   
-      gameBoard.addPeg(event, ui.draggable);
-     }    
+  $( ".hole" ).droppable({
+      accept: ".peg",
+      drop: function( event, ui ) {
+          //var targetElem = $(this).attr("id");
+
+          //$( this ).addClass( "ui-state-highlight" );
+          if($(ui.draggable).hasClass('draggable-source')){
+              $(ui.draggable).clone().appendTo(this).removeClass('draggable-source');
+          }else{
+            alert(this.id);
+              $( ui.draggable ).clone().appendTo(this);
+          }
+
+          gameBoard.addPeg(event, ui.draggable);
+      }
   });
 }
 
