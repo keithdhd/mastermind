@@ -20,6 +20,7 @@ Mastermind.prototype.init = function(){
 Mastermind.prototype.endGame = function(guessNum){
 
   $("#feedback" + guessNum).html("WIN");
+  $("#secret-code").fadeIn("slow");
 
   $( ".peg" ).draggable({
     disabled: true

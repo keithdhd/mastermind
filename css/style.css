@@ -78,6 +78,7 @@ li{
 
 #secret-code{
   text-align: center;
+  display: none;
 }
 
 #secret-code > li{
@@ -88,7 +89,7 @@ li{
   margin: 10px;
 }
 
-#secret-code-container{
+.secret-code-container{
   background-color: rgb(94, 63, 50);
   height: 50px;
   width: 300px;
