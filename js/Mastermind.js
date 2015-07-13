@@ -12,7 +12,7 @@ function Mastermind(){
   Mastermind.prototype.init = function(){
     console.log("Initialising Mastermind");
     this.gameBoard.buildBoard();
-    this.gameBoard.bindListeners(this.gameBoard);
+    this.gameBoard.bindListeners(this.gameBoard, 0);
     this.createSecretCode();
     this.startGame();
   }
@@ -25,12 +25,13 @@ function Mastermind(){
 
   }
 
-  Mastermind.prototype.giveFeedback = function(arrGuess){
+  Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
     var white = 0;
     var black = 0;
     var guessColor;
     var guessPosition;
     var arrSuccessullBlackColors = [];
+    var guessNum = guessNum.charAt(guessNum.length-1);
 
     //for every guess peg, check the position and color
     //and compare to secretCode pegs
@@ -69,10 +70,11 @@ function Mastermind(){
     console.log("black:" + black);
     console.log("white:" + white);
 
-    $(".guess-container > #5 > #feedback-holes").html("<div class='feedbackPeg'></div>");
+    $("#feedback" + guessNum).html("black:" + black   + "<br>" + "white:" + white); 
 
     //clear currentGuess array
     arrGuess.length = 0;
+    this.gameBoard.bindListeners(this.gameBoard, parseInt(guessNum) + 1);
   }
 
   Mastermind.prototype.createSecretCode = function(){
