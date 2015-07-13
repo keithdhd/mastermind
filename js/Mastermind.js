@@ -21,8 +21,13 @@ function Mastermind(){
 
   }
 
-  Mastermind.prototype.endGame = function(){
+  Mastermind.prototype.endGame = function(guessNum){
+    alert("You win in " +  (parseInt(guessNum) + 1) + " guesses!");
+    $("#feedback" + guessNum).html("WIN");
 
+    $( ".peg" ).draggable({
+      disabled: true
+    });
   }
 
   Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
@@ -30,7 +35,8 @@ function Mastermind(){
     var black = 0;
     var guessColor;
     var guessPosition;
-    var arrSuccessullBlackColors = [];
+    var arrSuccessfulBlackColors = [];
+    var arrSuccessfulWhiteColors = [];
     var guessNum = guessNum.charAt(guessNum.length-1);
 
     //for every guess peg, check the position and color
@@ -48,7 +54,7 @@ function Mastermind(){
       for(j; j<this._secretCode.length; j++){
         if(this._secretCode[j].getColor() == guessColor && this._secretCode[j].getPosition() == guessPosition){
           black++; 
-          arrSuccessullBlackColors[arrSuccessullBlackColors.length] = guessColor;
+          arrSuccessfulBlackColors[arrSuccessfulBlackColors.length] = guessColor;
           break;
         }
       }
@@ -60,8 +66,11 @@ function Mastermind(){
 
       var k=0;
       for(k; k<this._secretCode.length; k++){
-        if(this._secretCode[k].getColor() == guessColor && arrSuccessullBlackColors.indexOf(guessColor) === -1){
+        if(this._secretCode[k].getColor() == guessColor 
+          && arrSuccessfulBlackColors.indexOf(guessColor) === -1 
+          && arrSuccessfulWhiteColors.indexOf(guessColor) === -1){
           white++;
+          arrSuccessfulWhiteColors[arrSuccessfulWhiteColors.length] = guessColor;
           break; 
         }
       }
@@ -71,8 +80,7 @@ function Mastermind(){
     console.log("white:" + white);
 
     if(black === 5 && white === 0){
-      alert("You win in " +  (parseInt(guessNum) + 1) + " guesses!");
-      $("#feedback" + guessNum).html("WIN");
+      this.endGame(guessNum);
     }else{
       $("#feedback" + guessNum).html("black:" + black   + "<br>" + "white:" + white); 
     }

@@ -11,7 +11,6 @@ GameBoard.prototype.bindListeners = function(gameBoard, guessNum){
     cursor: "move",
     helper: "clone"
   });
-console.log("bindListeners:" + guessNum);
   $( "#guess" + guessNum + "> .hole" ).droppable({
     accept: ".peg",
     drop: function( event, ui ) {
