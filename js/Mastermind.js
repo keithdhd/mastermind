@@ -1,5 +1,5 @@
 function Mastermind(){
-  
+
   this._secretCode = [];
   this._score = {
     codeBreaker: 0,
@@ -9,41 +9,37 @@ function Mastermind(){
   this.gameBoard = new GameBoard(this);
 }
 
-  Mastermind.prototype.init = function(){
-    console.log("Initialising Mastermind");
-    this.gameBoard.buildBoard();
-    this.gameBoard.bindListeners(this.gameBoard, 0);
-    this.createSecretCode();
-    this.startGame();
-  }
+Mastermind.prototype.init = function(){
+  console.log("Initialising Mastermind");
+  this._secretCode.length = 0;
+  this.gameBoard.buildBoard();
+  this.gameBoard.bindListeners(this.gameBoard, 0);
+  this.createSecretCode();
+}
 
-  Mastermind.prototype.startGame = function(){
+Mastermind.prototype.endGame = function(guessNum){
 
-  }
+  $("#feedback" + guessNum).html("WIN");
 
-  Mastermind.prototype.endGame = function(guessNum){
-    alert("You win in " +  (parseInt(guessNum) + 1) + " guesses!");
-    $("#feedback" + guessNum).html("WIN");
+  $( ".peg" ).draggable({
+    disabled: true
+  });
+}
 
-    $( ".peg" ).draggable({
-      disabled: true
-    });
-  }
-
-  Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
-    var white = 0;
-    var black = 0;
-    var guessColor;
-    var guessPosition;
-    var arrSuccessfulBlackColors = [];
-    var arrSuccessfulWhiteColors = [];
-    var guessNum = guessNum.charAt(guessNum.length-1);
+Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
+  var white = 0;
+  var black = 0;
+  var guessColor;
+  var guessPosition;
+  var arrSuccessfulBlackColors = [];
+  var arrSuccessfulWhiteColors = [];
+  var guessNum = guessNum.charAt(guessNum.length-1);
 
     //for every guess peg, check the position and color
     //and compare to secretCode pegs
     //if position and color === true black++
     //if color === true white++
- 
+
     var i=0;
     for(i; i<arrGuess.length; i++){
       guessColor = arrGuess[i].getColor();
@@ -70,20 +66,20 @@ function Mastermind(){
           && arrSuccessfulBlackColors.indexOf(guessColor) === -1 
           && arrSuccessfulWhiteColors.indexOf(guessColor) === -1){
           white++;
-          arrSuccessfulWhiteColors[arrSuccessfulWhiteColors.length] = guessColor;
-          break; 
-        }
+        arrSuccessfulWhiteColors[arrSuccessfulWhiteColors.length] = guessColor;
+        break; 
       }
     }
+  }
 
-    console.log("black:" + black);
-    console.log("white:" + white);
+  console.log("black:" + black);
+  console.log("white:" + white);
 
-    if(black === 5 && white === 0){
-      this.endGame(guessNum);
-    }else{
-      $("#feedback" + guessNum).html("black:" + black   + "<br>" + "white:" + white); 
-    }
+  if(black === 5 && white === 0){
+    this.endGame(guessNum);
+  }else{
+    $("#feedback" + guessNum).html("black:" + black   + "<br>" + "white:" + white); 
+  }
 
     //clear currentGuess array
     arrGuess.length = 0;
@@ -101,7 +97,7 @@ function Mastermind(){
   }
 
 
-$(function(){
-  var mastermind = new Mastermind();
-  mastermind.init();
-});
+  $(function(){
+    var mastermind = new Mastermind();
+    mastermind.init();
+  });

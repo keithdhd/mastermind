@@ -9,7 +9,8 @@ GameBoard.prototype.bindListeners = function(gameBoard, guessNum){
   $(".peg").draggable({
     revert: "invalid", // when not dropped, the item will revert back to its initial position
     cursor: "move",
-    helper: "clone"
+    helper: "clone",
+    disabled: false
   });
   $( "#guess" + guessNum + "> .hole" ).droppable({
     accept: ".peg",
@@ -19,11 +20,17 @@ GameBoard.prototype.bindListeners = function(gameBoard, guessNum){
       gameBoard.addPeg(ui.draggable[0].id, targetElem, $(this).parent().attr("id"));
     }
   });
+
+  $("#reset-button").on("click", function(){
+    var mastermind = new Mastermind();
+    mastermind.init();
+  });
 }
 
 GameBoard.prototype.buildBoard = function(){
   //loop x times and append guess-holes-template to guess-container
   var guessUl;
+  $("#guesses-container").html("");
   var i = this._numberOfGuesses - 1;
   for(i; i>=0; i--){
     guessUl = document.createElement('ul'); 

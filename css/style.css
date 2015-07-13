@@ -41,7 +41,9 @@
 .feedback-holes{
   background-color: #ABABA6;
   width: 50px;
-  height: 35px;
+  height:35px;
+  font-size: 16px;
+  line-height: 16px;
   margin:10px;
   padding: 3px;
   border-radius: 5px;
@@ -94,6 +96,17 @@ li{
   border-style: outset;
   border-width: 5px;
   border-color: rgb(94, 63, 50);
+}
+
+#reset-button{
+  width: 200px;
+  margin:20px auto;
+  background-color: brown;
+  border-radius: 10px;
+  font-size: 32px;
+  text-align: center;
+  color: #f2f2f2;
+  line-height: 50px;
 }
 
 #guess-holes-template{
