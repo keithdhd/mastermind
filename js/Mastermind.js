@@ -41,24 +41,34 @@ function Mastermind(){
     for(i; i<arrGuess.length; i++){
       guessColor = arrGuess[i].getColor();
       guessPosition = arrGuess[i].getPosition();
-      console.log("Guess:" + guessColor + ":" + guessPosition);
 
+      //look for perfect matches first
       var j=0;
       for(j; j<this._secretCode.length; j++){
         //console.log("secretCode: " + this._secretCode[j].getColor() + ":" + this._secretCode[j].getPosition());  
-        //console.log("Guess:" + guessColor + ":" + guessPosition); 
-
+        //console.log("Guess:" + guessColor + ":" + guessPosition);
         if(this._secretCode[j].getColor() == guessColor && this._secretCode[j].getPosition() == guessPosition){
           black++;
-          delete arrGuess[i]; 
+          //delete arrGuess[i]; 
           arrSuccessullBlackColors[arrSuccessullBlackColors.length] = guessColor;
           break;
-        }else if(this._secretCode[j].getColor() == guessColor && arrSuccessullBlackColors.indexOf(guessColor) === -1){
+        }
+      }
+    }
+    i=0;
+    for(i; i<arrGuess.length; i++){
+      guessColor = arrGuess[i].getColor();
+      guessPosition = arrGuess[i].getPosition();
+
+      var k=0;
+      for(k; k<this._secretCode.length; k++){
+        if(this._secretCode[k].getColor() == guessColor && arrSuccessullBlackColors.indexOf(guessColor) === -1){
           white++;
-          delete arrGuess[i];
+          //delete arrGuess[i];
           break; 
         }
       }
+debugger
     }
 
     console.log("black:" + black);
