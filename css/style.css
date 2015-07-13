@@ -1,6 +1,11 @@
+body{
+  background-image: url("../images/wood-table.jpg");
+  background-size: cover;
+}
+
 .game-board{
   box-shadow:0 5px 10px 1px #000;
-  background-color:#796833;
+  background-color:#2F2F2F;
   width:400px;
   height: 710px;
   border:1px solid #000;
