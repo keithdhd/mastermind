@@ -33,23 +33,27 @@
 
 .hole{
   background-color: #333;
-  width: 15px;
-  height: 15px;
-  margin: 10px;
+  width: 30px;
+  height: 30px;
   border-radius: 20px;
 }
 
 .feedback-holes{
   background-color: #ABABA6;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 35px;
   margin: 10px;
+  padding: 3px;
   border-radius: 2px;
 }
 
 .peg-list{
   padding-left: 0px;
   padding-top: 20px;
+}
+
+.peg-list > .peg{
+  margin: 10px;
 }
 
 ul{
@@ -78,6 +82,10 @@ li{
   display: inline-block;
 }
 
+#secret-code > .peg{
+  margin: 10px;
+}
+
 #secret-code-container{
   background-color: rgb(94, 63, 50);
   height: 50px;
@@ -87,7 +95,6 @@ li{
   border-width: 5px;
   border-color: rgb(94, 63, 50);
 }
-
 
 #guess-holes-template{
   display: none;

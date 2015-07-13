@@ -45,11 +45,8 @@ function Mastermind(){
       //look for perfect matches first
       var j=0;
       for(j; j<this._secretCode.length; j++){
-        //console.log("secretCode: " + this._secretCode[j].getColor() + ":" + this._secretCode[j].getPosition());  
-        //console.log("Guess:" + guessColor + ":" + guessPosition);
         if(this._secretCode[j].getColor() == guessColor && this._secretCode[j].getPosition() == guessPosition){
-          black++;
-          //delete arrGuess[i]; 
+          black++; 
           arrSuccessullBlackColors[arrSuccessullBlackColors.length] = guessColor;
           break;
         }
@@ -64,15 +61,15 @@ function Mastermind(){
       for(k; k<this._secretCode.length; k++){
         if(this._secretCode[k].getColor() == guessColor && arrSuccessullBlackColors.indexOf(guessColor) === -1){
           white++;
-          //delete arrGuess[i];
           break; 
         }
       }
-debugger
     }
 
     console.log("black:" + black);
     console.log("white:" + white);
+
+    $(".guess-container > #5 > #feedback-holes").html("<div class='feedbackPeg'></div>");
 
     //clear currentGuess array
     arrGuess.length = 0;

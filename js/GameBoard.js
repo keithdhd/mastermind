@@ -6,7 +6,6 @@ function GameBoard(mastermind){
 }
 
 GameBoard.prototype.bindListeners = function(gameBoard){
-
   $(".peg").draggable({
     revert: "invalid", // when not dropped, the item will revert back to its initial position
     cursor: "move",
@@ -17,7 +16,7 @@ GameBoard.prototype.bindListeners = function(gameBoard){
     accept: ".peg",
     drop: function( event, ui ) {
       var targetElem = $(this).attr("id");
-      $( ui.draggable ).clone().appendTo(this);
+      $(this).html($(ui.draggable).clone());
       gameBoard.addPeg(ui.draggable[0].id, targetElem);
     }
   });
