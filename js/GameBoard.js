@@ -9,26 +9,17 @@ GameBoard.prototype.bindListeners = function(gameBoard){
 
   $(".peg").draggable({
     revert: "invalid", // when not dropped, the item will revert back to its initial position
-    //containment: ".guesses-container",
     cursor: "move",
     helper: "clone"
   });
 
   $( ".hole" ).droppable({
-      accept: ".peg",
-      drop: function( event, ui ) {
-          //var targetElem = $(this).attr("id");
-
-          //$( this ).addClass( "ui-state-highlight" );
-          if($(ui.draggable).hasClass('draggable-source')){
-              $(ui.draggable).clone().appendTo(this).removeClass('draggable-source');
-          }else{
-            alert(this.id);
-              $( ui.draggable ).clone().appendTo(this);
-          }
-
-          gameBoard.addPeg(event, ui.draggable);
-      }
+    accept: ".peg",
+    drop: function( event, ui ) {
+      var targetElem = $(this).attr("id");
+      $( ui.draggable ).clone().appendTo(this);
+      gameBoard.addPeg(ui.draggable[0].id, targetElem);
+    }
   });
 }
 
@@ -46,15 +37,15 @@ GameBoard.prototype.buildBoard = function(){
   }
 }
 
-GameBoard.prototype.addPeg = function(peg){
+GameBoard.prototype.addPeg = function(color, position){
   //addPeg should add a peg object to the current guess array
-  var color = event.srcElement.id;
-  var position = peg.target.id;
+  console.log("position:" + position, "color:"+ color);
+
   this._currentGuess.push(new Peg(color, position));
 
   if(this._currentGuess.length === 5){
-     this.mastermind.giveFeedback(this._currentGuess);   
-  }
+   this.mastermind.giveFeedback(this._currentGuess);   
+ }
 }
 
 GameBoard.prototype.addSecretCode = function(arrSecretCode){
