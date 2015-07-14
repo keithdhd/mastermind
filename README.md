@@ -11,7 +11,7 @@ Libraries used:
   JQuery, jQueryUI
   
 Approach Taken:
-  Object oriented JavScript
+  Object oriented JavaScript
   Designed class diagram with responsibilities and properties.
   Ended up with Mastermind, Gameboard and Peg classes based on real life objects
   There turned out to be no need for a Player class.
