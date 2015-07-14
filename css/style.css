@@ -1,5 +1,5 @@
 body{
-  background-image: url("../images/wood-table.jpg");
+  //background-image: url("../images/wood-table.jpg");
   background-size: cover;
 }
 
@@ -12,6 +12,7 @@ body{
   border-radius: 4px;
   padding: 10px;
   margin: 50px auto;
+  //float: right;
 }
 
 .main-board{
@@ -87,7 +88,7 @@ li{
 
 #secret-code{
   text-align: center;
-  display: none;
+  //display: none;
 }
 
 #secret-code > li{

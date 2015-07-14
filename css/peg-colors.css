@@ -47,19 +47,3 @@
 .white{
   background: radial-gradient(circle at 10px 10px, #f2f2f2, #000);
 }   
-
-.maroon{
-  background: radial-gradient(circle at 10px 10px, maroon, #000);
-}
-
-.brown{
-  background: radial-gradient(circle at 10px 10px, brown, #000);
-}
-
-.purple{
-  background: radial-gradient(circle at 10px 10px, purple, #000);
-}
-
-.grey{
-  background: radial-gradient(circle at 10px 10px, grey, #000);
-}
