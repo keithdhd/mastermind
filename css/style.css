@@ -60,6 +60,10 @@ body{
   border-radius: 5px;
 }
 
+#peg-list{
+  padding-top: 125px;
+}
+
 #guesses-container{
   width: 85%;
   display: inline-block;
@@ -187,5 +191,5 @@ li{
 }
 
 li.hole {
-  margin-bottom: 12px;
+  //margin-bottom: 12px;
 }
