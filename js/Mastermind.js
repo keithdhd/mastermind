@@ -18,13 +18,18 @@ Mastermind.prototype.init = function(){
 }
 
 Mastermind.prototype.endGame = function(guessNum){
+  if(guessNum+1 === 8){
+    $("#feedback" + guessNum).html("LOSE!");
+  }else{
+    $("#feedback" + guessNum).html("WIN");
+  }
 
-  $("#feedback" + guessNum).html("WIN");
   $("#secret-code").fadeIn("slow");
 
   $( ".peg" ).draggable({
     disabled: true
   });
+
 }
 
 Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
@@ -76,8 +81,8 @@ Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
   console.log("black:" + black);
   console.log("white:" + white);
 
-  if(black === 5 && white === 0){
-    this.endGame(guessNum);
+  if((black === 5 && white === 0) || parseInt(guessNum)+1 === 8){
+    this.endGame(parseInt(guessNum));
   }else{
     $("#feedback" + guessNum).html("black:" + black   + "<br>" + "white:" + white); 
   }
@@ -96,7 +101,6 @@ Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
     }
     this.gameBoard.addSecretCode(this._secretCode);
   }
-
 
   $(function(){
     var mastermind = new Mastermind();

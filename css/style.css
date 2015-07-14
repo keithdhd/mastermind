@@ -7,7 +7,7 @@ body{
   box-shadow:0 5px 10px 1px #000;
   background-color:#2F2F2F;
   width:400px;
-  height: 710px;
+  height: 640px;
   border:1px solid #000;
   border-radius: 4px;
   padding: 10px;
@@ -17,15 +17,18 @@ body{
 
 .main-board{
   background-color: brown;
-  height: 600px;
+  height: 460px;
   padding: 5px;
   border-radius: 5px;
+  border-style: outset;
+  border-color: brown;
+  border-width: 5px;
 }
 
 .all-pegs-container{
   background-color: rgb(94, 63, 50);
   width: 15%; 
-  height: 600px;
+  height: 450px;
   display: inline-block;
   float: left;
   border-radius: 5px;
@@ -111,7 +114,7 @@ li{
 
 #reset-button{
   width: 200px;
-  margin:30px auto;
+  margin:10px auto;
   background-color: brown;
   border-radius: 10px;
   font-size: 32px;

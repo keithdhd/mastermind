@@ -38,7 +38,7 @@ GameBoard.prototype.buildBoard = function(){
     $(guessUl).attr("id", "guess" + i);
     $(guessUl).attr("class", "guess-holes");
 
-    $(guessUl).append("<li><div class='feedback-holes' id=feedback" + i + "></div></li>");
+    $(guessUl).append("<li class='feedback-holes' id=feedback" + i + "></li>");
 
     $("#guesses-container").append($(guessUl));
   }
