@@ -35,48 +35,54 @@ Mastermind.prototype.endGame = function(guessNum){
 Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
   var white = 0;
   var black = 0;
-  var guessColor;
-  var guessPosition;
-  var arrSuccessfulBlackColors = [];
-  var arrSuccessfulWhiteColors = [];
+  var arrSecretCode = this._secretCode.slice(0);
+  var orderedArray = buildOrderedArray(arrGuess);
   var guessNum = guessNum.charAt(guessNum.length-1);
+  black = getMatches(orderedArray, arrSecretCode);
+  orderedArray.sort();
+  arrSecretCode.sort();
+  white = getImperfectMatches(orderedArray, arrSecretCode);
 
-    //for every guess peg, check the position and color
-    //and compare to secretCode pegs
-    //if position and color === true black++
-    //if color === true white++
-
-    var i=0;
-    for(i; i<arrGuess.length; i++){
-      guessColor = arrGuess[i].getColor();
-      guessPosition = arrGuess[i].getPosition();
-
-      //look for perfect matches first
-      var j=0;
-      for(j; j<this._secretCode.length; j++){
-        if(this._secretCode[j].getColor() == guessColor && this._secretCode[j].getPosition() == guessPosition){
-          black++; 
-          arrSuccessfulBlackColors[arrSuccessfulBlackColors.length] = guessColor;
-          break;
-        }
-      }
+  function buildOrderedArray(arrGuess){
+    var orderedArray = Array(5);
+    var peg;
+    for(var j=0; j<arrGuess.length; j++){
+      peg = arrGuess[j]; 
+      orderedArray[peg.getPosition()] = peg.getColor();
     }
-    i=0;
-    for(i; i<arrGuess.length; i++){
-      guessColor = arrGuess[i].getColor();
-      guessPosition = arrGuess[i].getPosition();
-
-      var k=0;
-      for(k; k<this._secretCode.length; k++){
-        if(this._secretCode[k].getColor() == guessColor 
-          && arrSuccessfulBlackColors.indexOf(guessColor) === -1 
-          && arrSuccessfulWhiteColors.indexOf(guessColor) === -1){
-          white++;
-        arrSuccessfulWhiteColors[arrSuccessfulWhiteColors.length] = guessColor;
-        break; 
-      }
-    }
+    return orderedArray;
   }
+
+   //1. Perfect -> right color right position
+    function getMatches(orderedArray, arrSecretCode){   
+      for (var i=0; i< arrSecretCode.length; i++) {
+          console.log("arrSecretCode[i]:"+ arrSecretCode[i].getColor() + " orderedArray[i]:" + orderedArray[i]);
+          if(arrSecretCode[i].getColor() == orderedArray[i]) {
+            arrSecretCode[i] = orderedArray[i] = null;
+          }    
+        }
+
+        return arrSecretCode.filter(function(value){
+          return value == null;
+        }).length;
+      }
+
+      function getImperfectMatches(orderedArray, arrSecretCode){
+        var whiteCount = 0;
+        
+        for(var i=0; i<orderedArray.length; i++){
+          for(var j=0; j<arrSecretCode.length; j++){
+             if(arrSecretCode[j] !== null){
+               if(arrSecretCode[j].getColor() == orderedArray[i]){
+                orderedArray[i] = null;
+                whiteCount++; 
+              }
+            }
+          }
+     
+       }
+       return whiteCount;
+     }
 
   console.log("black:" + black);
   console.log("white:" + white);
