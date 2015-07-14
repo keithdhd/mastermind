@@ -25,6 +25,12 @@ GameBoard.prototype.bindListeners = function(gameBoard, guessNum){
     var mastermind = new Mastermind();
     mastermind.init();
   });
+
+  $("#box-cover").on("click", function(){
+    $(this).animate({
+      left: "100px"
+    }, 3000);
+  });
 }
 
 GameBoard.prototype.buildBoard = function(){

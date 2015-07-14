@@ -3,6 +3,16 @@ body{
   background-size: cover;
 }
 
+#box-cover{
+  background-image: url("../images/mastermind-box.png");
+  height: 660px;
+  width: 410px;
+  background-size: cover;
+  position: absolute;
+  left: 578px;
+  top: 45px;
+}
+
 .game-board{
   box-shadow:0 5px 10px 1px #000;
   background-color:#2F2F2F;
@@ -12,8 +22,7 @@ body{
   border:1px solid #000;
   border-radius: 4px;
   padding: 10px;
-  margin: 50px 250px;
-  float: right;
+  margin: 50px auto;
 }
 
 .main-board{
