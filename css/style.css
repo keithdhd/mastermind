@@ -9,7 +9,7 @@ body{
   width: 410px;
   background-size: cover;
   position: absolute;
-  left: 578px;
+  left: 514px;
   top: 45px;
 }
 
@@ -41,7 +41,7 @@ body{
  width: 320px;
  background-size: cover;
  position: absolute;
- left: 610px;
+ left: 543px;
  top: 50px;
  border-radius: 5px;
  z-index: -1;
