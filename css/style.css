@@ -175,6 +175,15 @@ li{
     padding: 10px;
     margin: 50px auto;
   }
+
+  #instructions{
+    display: none;
+  }
+
+  #box-cover{
+    display: none;
+  }
+
 }
 
 li.hole {
