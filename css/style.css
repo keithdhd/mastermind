@@ -35,12 +35,20 @@ body{
   border-width: 5px;
 }
 
-.instructions{
-  background-color: white;
-  position: relative;
-  margin:100px auto;
-  width: 320px;
-  padding: 10px;
+#instructions{
+ background-color: #f2f2f2;
+ height: 470px;
+ width: 320px;
+ background-size: cover;
+ position: absolute;
+ left: 610px;
+ top: 50px;
+ border-radius: 5px;
+ z-index: -1;
+ font-family: 'Montserrat', sans-serif;
+ color: #333;
+ font-size: 1.5em;
+ padding: 15px;
 }
 
 .all-pegs-container{

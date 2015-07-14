@@ -30,7 +30,13 @@ GameBoard.prototype.bindListeners = function(gameBoard, guessNum){
     $(this).animate({
       left: "100px"
     }, 3000);
+
+    $("#instructions").animate({
+      left: "1050px"
+    }, 3000);
+
   });
+
 }
 
 GameBoard.prototype.buildBoard = function(){
