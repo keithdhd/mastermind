@@ -1,19 +1,19 @@
 body{
-  //background-image: url("../images/wood-table.jpg");
+  background-image: url("../images/wood-table.jpg");
   background-size: cover;
 }
 
 .game-board{
   box-shadow:0 5px 10px 1px #000;
   background-color:#2F2F2F;
-  width:400px;
-  //standard width for mobile 320 480 960 1080 
+  width:320px;
+  //standard width for (mobile 320) 480 960 1080 
   height: 660px;
   border:1px solid #000;
   border-radius: 4px;
   padding: 10px;
-  margin: 50px auto;
-  //float: right;
+  margin: 50px 250px;
+  float: right;
 }
 
 .main-board{
@@ -24,6 +24,14 @@ body{
   border-style: outset;
   border-color: brown;
   border-width: 5px;
+}
+
+.instructions{
+  background-color: white;
+  position: relative;
+  margin:100px auto;
+  width: 320px;
+  padding: 10px;
 }
 
 .all-pegs-container{
@@ -47,8 +55,8 @@ body{
 
 .hole{
   background-color: #333;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 20px;
 }
 
@@ -61,11 +69,21 @@ body{
   margin:10px;
   padding: 3px;
   border-radius: 5px;
+  overflow: hidden;
 }
 
-.peg-list{
-  padding-left: 0px;
-  padding-top: 20px;
+.feedback-black {
+  color: black;
+}
+
+.feedback-white {
+  color: white;
+}
+
+.feedback-black, .feedback-white {
+  font-weight: 700;
+  display: block;
+  text-align: center;
 }
 
 .peg-list > .peg{
@@ -126,4 +144,22 @@ li{
 
 #guess-holes-template{
   display: none;
+}
+
+@media only screen and (max-width: 640px){
+  .game-board{
+    box-shadow:0 5px 10px 1px #000;
+    background-color:#2F2F2F;
+    width:320px;
+    //standard width for (mobile 320) 480 960 1080 
+    height: 660px;
+    border:1px solid #000;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 50px auto;
+  }
+}
+
+li.hole {
+  margin-bottom: 12px;
 }

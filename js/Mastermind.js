@@ -15,6 +15,7 @@ Mastermind.prototype.init = function(){
   this.gameBoard.buildBoard();
   this.gameBoard.bindListeners(this.gameBoard, 0);
   this.createSecretCode();
+  $("#secret-code").css("display", "none");
 }
 
 Mastermind.prototype.endGame = function(guessNum){
@@ -56,7 +57,7 @@ Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
    //1. Perfect -> right color right position
     function getMatches(orderedArray, arrSecretCode){   
       for (var i=0; i< arrSecretCode.length; i++) {
-          console.log("arrSecretCode[i]:"+ arrSecretCode[i].getColor() + " orderedArray[i]:" + orderedArray[i]);
+          console.log("arrSecretCode[i]:"+ arrSecretCode[i].getColor());
           if(arrSecretCode[i].getColor() == orderedArray[i]) {
             arrSecretCode[i] = orderedArray[i] = null;
           }    
@@ -90,7 +91,7 @@ Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
   if((black === 5 && white === 0) || parseInt(guessNum)+1 === 8){
     this.endGame(parseInt(guessNum));
   }else{
-    $("#feedback" + guessNum).html("black:" + black   + "<br>" + "white:" + white); 
+    $("#feedback" + guessNum).html("<span class='feedback-black'>" + black + "</span><span class='feedback-white'>" + white + "</span>"); 
   }
 
     //clear currentGuess array
