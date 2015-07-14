@@ -1,8 +1,6 @@
 # Mastermind
 WDI Project 1 London
 
-explanations of the technologies used, the approach taken, installation instructions, unsolved problems
-
 Mastermind creates a secret combination of colored pegs. Guess that combination in 8 or fewer tries to win.
 For each guess a black score indicates that one of your pegs is the right color in the right position.
 A white score indicates that one of your pegs is the right color in the wrong position.
