@@ -60,7 +60,7 @@ GameBoard.prototype.addPeg = function(color, position, guessNum){
   //addPeg should add a peg object to the current guess array
   this._currentGuess.push(new Peg(color, position));
 
-  if(this._currentGuess.length === 5){
+  if(this._currentGuess.length === 4){
    this.mastermind.giveFeedback(this._currentGuess, guessNum);   
  }
 }

@@ -18,11 +18,11 @@ Mastermind.prototype.init = function(){
   $("#secret-code").css("display", "none");
 }
 
-Mastermind.prototype.endGame = function(guessNum){
-  if(guessNum+1 === 8){
-    $("#feedback" + guessNum).html("LOSE!");
+Mastermind.prototype.endGame = function(guessNum, black){
+  if(black == 4){
+    $("#feedback" + guessNum).html("<span class='feedback-black'>WIN!</span>");
   }else{
-    $("#feedback" + guessNum).html("WIN");
+    $("#feedback" + guessNum).html("<span class='feedback-black'>LOSE!</span>");
   }
 
   $("#secret-code").fadeIn("slow");
@@ -45,7 +45,7 @@ Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
   white = getImperfectMatches(orderedArray, arrSecretCode);
 
   function buildOrderedArray(arrGuess){
-    var orderedArray = Array(5);
+    var orderedArray = Array(4);
     var peg;
     for(var j=0; j<arrGuess.length; j++){
       peg = arrGuess[j]; 
@@ -88,8 +88,8 @@ Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
   console.log("black:" + black);
   console.log("white:" + white);
 
-  if((black === 5 && white === 0) || parseInt(guessNum)+1 === 8){
-    this.endGame(parseInt(guessNum));
+  if((black === 4 && white === 0) || parseInt(guessNum)+1 === 8){
+    this.endGame(parseInt(guessNum), black);
   }else{
     $("#feedback" + guessNum).html("<span class='feedback-black'>" + black + "</span><span class='feedback-white'>" + white + "</span>"); 
   }
@@ -102,7 +102,7 @@ Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
   Mastermind.prototype.createSecretCode = function(){
     var peg;
     var j;
-    for(j=0; j<5; j++){
+    for(j=0; j<4; j++){
       peg = new Peg(this._colors[Math.floor(Math.random() * 7)], j);
       this._secretCode.push(peg);
     }
