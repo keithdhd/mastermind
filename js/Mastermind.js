@@ -56,7 +56,6 @@ Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
    //Perfect -> right color right position
    function getMatches(orderedArray, arrSecretCode){   
       for (var i=0; i< arrSecretCode.length; i++) {
-        console.log("arrSecretCode[i]:"+ arrSecretCode[i].getColor());
         if(arrSecretCode[i].getColor() == orderedArray[i]) {
           arrSecretCode[i] = orderedArray[i] = null;
         }    
@@ -83,9 +82,6 @@ Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
       }
       return whiteCount;
     }
-
-  console.log("black:" + black);
-  console.log("white:" + white);
 
   if((black === 4 && white === 0) || parseInt(guessNum)+1 === 8){
     this.endGame(parseInt(guessNum), black);
