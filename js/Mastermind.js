@@ -30,7 +30,6 @@ Mastermind.prototype.endGame = function(guessNum, black){
   $( ".peg" ).draggable({
     disabled: true
   });
-
 }
 
 Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
@@ -54,36 +53,36 @@ Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
     return orderedArray;
   }
 
-   //1. Perfect -> right color right position
-    function getMatches(orderedArray, arrSecretCode){   
+   //Perfect -> right color right position
+   function getMatches(orderedArray, arrSecretCode){   
       for (var i=0; i< arrSecretCode.length; i++) {
-          console.log("arrSecretCode[i]:"+ arrSecretCode[i].getColor());
-          if(arrSecretCode[i].getColor() == orderedArray[i]) {
-            arrSecretCode[i] = orderedArray[i] = null;
-          }    
-        }
-
-        return arrSecretCode.filter(function(value){
-          return value == null;
-        }).length;
+        console.log("arrSecretCode[i]:"+ arrSecretCode[i].getColor());
+        if(arrSecretCode[i].getColor() == orderedArray[i]) {
+          arrSecretCode[i] = orderedArray[i] = null;
+        }    
       }
 
-      function getImperfectMatches(orderedArray, arrSecretCode){
-        var whiteCount = 0;
-        
-        for(var i=0; i<orderedArray.length; i++){
-          for(var j=0; j<arrSecretCode.length; j++){
-             if(arrSecretCode[j] !== null){
-               if(arrSecretCode[j].getColor() == orderedArray[i]){
-                orderedArray[i] = null;
-                whiteCount++; 
-              }
-            }
+      return arrSecretCode.filter(function(value){
+        return value == null;
+      }).length;
+    }
+
+    function getImperfectMatches(orderedArray, arrSecretCode){
+      var whiteCount = 0;
+
+      for(var i=0; i<orderedArray.length; i++){
+        for(var j=0; j<arrSecretCode.length; j++){
+         if(arrSecretCode[j] !== null){
+           if(arrSecretCode[j].getColor() == orderedArray[i]){
+            orderedArray[i] = null;
+            whiteCount++; 
           }
-     
-       }
-       return whiteCount;
-     }
+        }
+      }
+
+      }
+      return whiteCount;
+    }
 
   console.log("black:" + black);
   console.log("white:" + white);
@@ -94,22 +93,22 @@ Mastermind.prototype.giveFeedback = function(arrGuess, guessNum){
     $("#feedback" + guessNum).html("<span class='feedback-black'>" + black + "</span><span class='feedback-white'>" + white + "</span>"); 
   }
 
-    //clear currentGuess array
-    arrGuess.length = 0;
-    this.gameBoard.bindListeners(this.gameBoard, parseInt(guessNum) + 1);
-  }
+  //clear currentGuess array
+  arrGuess.length = 0;
+  this.gameBoard.bindListeners(this.gameBoard, parseInt(guessNum) + 1);
+}
 
-  Mastermind.prototype.createSecretCode = function(){
-    var peg;
-    var j;
-    for(j=0; j<4; j++){
-      peg = new Peg(this._colors[Math.floor(Math.random() * 7)], j);
-      this._secretCode.push(peg);
-    }
-    this.gameBoard.addSecretCode(this._secretCode);
+Mastermind.prototype.createSecretCode = function(){
+  var peg;
+  var j;
+  for(j=0; j<4; j++){
+    peg = new Peg(this._colors[Math.floor(Math.random() * 7)], j);
+    this._secretCode.push(peg);
   }
+  this.gameBoard.addSecretCode(this._secretCode);
+}
 
-  $(function(){
-    var mastermind = new Mastermind();
-    mastermind.init();
-  });
+$(function(){
+  var mastermind = mastermind || new Mastermind();
+  mastermind.init();
+});

@@ -12,6 +12,7 @@ GameBoard.prototype.bindListeners = function(gameBoard, guessNum){
     helper: "clone",
     disabled: false
   });
+
   $( "#guess" + guessNum + "> .hole" ).droppable({
     accept: ".peg",
     drop: function( event, ui ) {
@@ -32,11 +33,10 @@ GameBoard.prototype.bindListeners = function(gameBoard, guessNum){
     }, 3000);
 
     $("#instructions").animate({
-      left: "1050px"
+      left: "1000px"
     }, 3000);
 
   });
-
 }
 
 GameBoard.prototype.buildBoard = function(){
