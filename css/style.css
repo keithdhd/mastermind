@@ -11,6 +11,7 @@ body{
   position: absolute;
   left: 514px;
   top: 45px;
+  display: none;
 }
 
 .game-board{
@@ -48,6 +49,7 @@ body{
  color: #333;
  font-size: 1.5em;
  padding: 15px;
+ display: none;
 }
 
 .all-pegs-container{
