@@ -10,9 +10,9 @@ WDI Project 1 London
 3. For each guess a black score indicates that one of your pegs is the right color in the right position.
 4. A white score indicates that one of your pegs is the right color in the wrong position.
 
-[Play it here!](https://fatidique-mandarine-1676.herokuapp.com/)
+[Play it here!](https://js-mastermind.herokuapp.com)
 
-![Mastermind](https://raw.githubusercontent.com/keithdhd/mastermind/master/images/screen-shot1.png "Mastermind")(https://fatidique-mandarine-1676.herokuapp.com/)
+![Mastermind](https://raw.githubusercontent.com/keithdhd/mastermind/master/images/screen-shot1.png "Mastermind")(https://js-mastermind.herokuapp.com)
 
 ##Approach / How it works
 
