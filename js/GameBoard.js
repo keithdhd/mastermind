@@ -29,11 +29,11 @@ GameBoard.prototype.bindListeners = function(gameBoard, guessNum){
 
   $("#box-cover").on("click", function(){
     $(this).animate({
-      left: "100px"
+      left: "60px"
     }, 3000);
 
     $("#instructions").animate({
-      left: "1000px"
+      left: "830px"
     }, 3000);
 
   });
